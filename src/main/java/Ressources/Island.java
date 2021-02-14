@@ -1,5 +1,7 @@
 package Ressources;
 
+import Ressources.GlobleVariables.Season;
+
 import java.util.List;
 
 public class Island {
@@ -8,17 +10,19 @@ public class Island {
     private Agriculture agriculture;
     private Industry industry;
     private Treasury treasury;
+    private Season season;
     private int citizenTotal;
     private double satisfactionGlobal;
     private int yearsTotal;
 
 
-    public Island(President elpresidente, List<Faction> factions, Agriculture agriculture, Industry industry, Treasury treasury, int citizenTotal, double satisfactionGlobal, int yearsTotal) {
+    public Island(President elpresidente, List<Faction> factions, Agriculture agriculture, Industry industry, Treasury treasury, Season season, int citizenTotal, double satisfactionGlobal, int yearsTotal) {
         this.elpresidente = elpresidente;
         Factions = factions;
         this.agriculture = agriculture;
         this.industry = industry;
         this.treasury = treasury;
+        this.season = season;
         this.citizenTotal = citizenTotal;
         this.satisfactionGlobal = satisfactionGlobal;
         this.yearsTotal = yearsTotal;
@@ -87,6 +91,14 @@ public class Island {
 
     public void setYearsTotal(int yearsTotal) {
         this.yearsTotal = yearsTotal;
+    }
+
+    public Season getSeason() {
+        return season;
+    }
+
+    public void setSeason(Season season) {
+        this.season = season;
     }
 
     @Override
