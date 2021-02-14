@@ -1,14 +1,15 @@
 package Ressources;
 
+import Ressources.GlobleVariables.Season;
 import java.util.List;
 
 public class Event {
     private String event;
-    private Integer season;
+    private Season season;
     private List<Choice> choices;
     private Event subEvent;
 
-    public Event(String event, Integer season, List<Choice> choices, Event subEvent) {
+    public Event(String event, Season season, List<Choice> choices, Event subEvent) {
         this.event = event;
         this.season = season;
         this.choices = choices;
@@ -23,11 +24,11 @@ public class Event {
         this.event = event;
     }
 
-    public Integer getSeason() {
+    public Season getSeason() {
         return season;
     }
 
-    public void setSeason(Integer season) {
+    public void setSeason(Season season) {
         this.season = season;
     }
 

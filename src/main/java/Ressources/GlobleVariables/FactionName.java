@@ -1,0 +1,6 @@
+package Ressources.GlobleVariables;
+
+public enum FactionName {
+    CAPITALISTS, COMMUNISTS, LIBERALS, RELIGIOUS,
+    MILITARISTS, ECOLOGISTS, NATIONALISTS, LOYALISTS
+}
