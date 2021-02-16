@@ -28,6 +28,10 @@ public class Island {
         this.yearsTotal = yearsTotal;
     }
 
+    /**create an empty class island  for the initialization purpose*/
+    public Island(){
+    }
+
 
     public President getElpresidente() {
         return elpresidente;
