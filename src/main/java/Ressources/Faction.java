@@ -1,22 +1,27 @@
 package Ressources;
 
+import Ressources.GlobleVariables.FactionName;
+
 public class Faction {
-    private String title;
+    private FactionName title;
     private double satisfaction;
     private int nbrPartisans;
 
-    public Faction(String title, double satisfaction, int nbrPartisans) {
+    public Faction(FactionName title, double satisfaction, int nbrPartisans) {
         this.title = title;
         this.satisfaction = satisfaction;
         this.nbrPartisans = nbrPartisans;
     }
+    public Faction(FactionName title) {
+        this.title = title;
+    }
 
 
-    public String getTitle() {
+    public FactionName getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(FactionName title) {
         this.title = title;
     }
 

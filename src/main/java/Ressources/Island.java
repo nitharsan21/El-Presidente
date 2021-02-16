@@ -1,7 +1,9 @@
 package Ressources;
 
+import Ressources.GlobleVariables.Difficulty;
 import Ressources.GlobleVariables.Season;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Island {
@@ -11,18 +13,23 @@ public class Island {
     private Industry industry;
     private Treasury treasury;
     private Season season;
+    private Difficulty difficulty;
+    private int nbtour;
     private int citizenTotal;
     private double satisfactionGlobal;
     private int yearsTotal;
 
 
-    public Island(President elpresidente, List<Faction> factions, Agriculture agriculture, Industry industry, Treasury treasury, Season season, int citizenTotal, double satisfactionGlobal, int yearsTotal) {
+    public Island(President elpresidente, List<Faction> factions, Agriculture agriculture,
+                  Industry industry, Treasury treasury, Season season, int nbtour,
+                  int citizenTotal, double satisfactionGlobal, int yearsTotal) {
         this.elpresidente = elpresidente;
         Factions = factions;
         this.agriculture = agriculture;
         this.industry = industry;
         this.treasury = treasury;
         this.season = season;
+        this.nbtour = nbtour;
         this.citizenTotal = citizenTotal;
         this.satisfactionGlobal = satisfactionGlobal;
         this.yearsTotal = yearsTotal;
@@ -30,6 +37,10 @@ public class Island {
 
     /**create an empty class island  for the initialization purpose*/
     public Island(){
+        this.Factions = new ArrayList<>();
+        this.nbtour = 0;
+        this.yearsTotal = 0;
+
     }
 
 
@@ -105,17 +116,56 @@ public class Island {
         this.season = season;
     }
 
+    public void addFaction(Faction faction){
+        if(faction != null){
+            this.Factions.add(faction);
+        }
+    }
+
+    public double calculSatisfactionGlobal() {
+        double totalsupporters = 0;
+        double calculsatisfaction = 0;
+        for(Faction faction : this.getFactions()){
+            totalsupporters += faction.getNbrPartisans();
+            calculsatisfaction += faction.getSatisfaction() * faction.getNbrPartisans();
+        }
+        return calculsatisfaction/totalsupporters;
+    }
+
+    public int getcitizenTotalFromFaction(){
+        int totalcitizen = 0;
+        for(Faction faction : this.getFactions()){
+            totalcitizen += faction.getNbrPartisans();
+        }
+        return totalcitizen;
+    }
+
+    public void incrementNbTour(){
+        this.nbtour ++;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
     @Override
     public String toString() {
         return "Island{" +
-                "elpresidente=" + elpresidente +
-                ", Factions=" + Factions +
-                ", agriculture=" + agriculture +
-                ", industry=" + industry +
-                ", treasury=" + treasury +
-                ", citizenTotal=" + citizenTotal +
-                ", satisfactionGlobal=" + satisfactionGlobal +
-                ", yearsTotal=" + yearsTotal +
+                "elpresidente=" + elpresidente + "\n"+
+                ", Factions=" + Factions + "\n"+
+                ", agriculture=" + agriculture + "\n"+
+                ", industry=" + industry + "\n"+
+                ", treasury=" + treasury + "\n"+
+                ", season=" + season + "\n"+
+                ", difficulty=" + difficulty + "\n"+
+                ", nbtour=" + nbtour + "\n"+
+                ", citizenTotal=" + citizenTotal + "\n"+
+                ", satisfactionGlobal=" + satisfactionGlobal + "\n"+
+                ", yearsTotal=" + yearsTotal + "\n"+
                 '}';
     }
 }

@@ -13,6 +13,8 @@ public class President {
         this.sex = sex;
     }
 
+    public President(){}
+
 
     public String getFirstName() {
         return firstName;
