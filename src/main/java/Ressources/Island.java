@@ -140,6 +140,10 @@ public class Island {
         return totalcitizen;
     }
 
+    public int getNbtour() {
+        return nbtour;
+    }
+
     public void incrementNbTour(){
         this.nbtour ++;
     }
@@ -150,6 +154,10 @@ public class Island {
 
     public Difficulty getDifficulty() {
         return difficulty;
+    }
+
+    public void increaseYear(){
+        this.yearsTotal ++;
     }
 
     @Override
