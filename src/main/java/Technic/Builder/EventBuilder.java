@@ -45,7 +45,6 @@ public class EventBuilder {
 
     /**
      * changing the JsonObject to Class Event
-     *
      * @param eventObject variable with all the data event
      */
     private static void parseEventObject(JsonObject eventObject) {
