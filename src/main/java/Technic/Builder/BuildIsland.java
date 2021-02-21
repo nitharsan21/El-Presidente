@@ -6,7 +6,9 @@ import java.io.File;
 
 public class BuildIsland {
 
-    /** building all the nessairy variables for the game*/
+    /**
+     *  building all the necessary variables for the game
+     */
     public static void build(){
         new InitializeNewIsland().initialize();
         new InitializePresident().initialize();

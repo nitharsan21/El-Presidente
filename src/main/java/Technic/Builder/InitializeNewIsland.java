@@ -11,7 +11,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class InitializeNewIsland implements Initialize{
-
+    /**
+     * initialization of the new island with all the parameters
+     */
     public void initialize(){
         try {
             MainApp.island = new Island();
@@ -38,7 +40,7 @@ public class InitializeNewIsland implements Initialize{
 
             MainApp.island.setSatisfactionGlobal(MainApp.island.calculSatisfactionGlobal());
             MainApp.island.setSeason(Season.SPRING);
-           System.out.println(MainApp.island.toString());
+//           System.out.println(MainApp.island.toString());
 
        }catch (Exception ex){
            System.out.println(ex.getMessage());

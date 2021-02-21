@@ -16,6 +16,9 @@ import java.util.List;
 
 public class InitializeDifficulty implements Initialize {
 
+    /**
+     * Setting up the Difficlty level for the game
+     */
     public void initialize() {
         int action ;
         List<Difficulty> listdifficultys;
