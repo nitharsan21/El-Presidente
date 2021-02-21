@@ -1,9 +1,11 @@
 package Ressources;
 
+import Luncher.MainApp;
 import Ressources.GlobleVariables.Difficulty;
 import Ressources.GlobleVariables.Season;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Island {
@@ -116,6 +118,17 @@ public class Island {
         this.season = season;
     }
 
+    public void nextSeason(){
+        List<Season> listseason = Arrays.asList(Season.values().clone());
+        int index = listseason.indexOf(this.season);
+        if(!listseason.get(index + 1 ).equals(Season.ALL)){
+            this.season = listseason.get(index + 1);
+        }else {
+            this.season = Season.SPRING;
+        }
+
+    }
+
     public void addFaction(Faction faction){
         if(faction != null){
             this.Factions.add(faction);
@@ -148,6 +161,7 @@ public class Island {
         this.nbtour ++;
     }
 
+
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
     }
@@ -175,5 +189,26 @@ public class Island {
                 ", satisfactionGlobal=" + satisfactionGlobal + "\n"+
                 ", yearsTotal=" + yearsTotal + "\n"+
                 '}';
+    }
+
+    /**
+     * all information about the isaland
+     */
+    public void printSatisfaction(){
+        System.out.println("Bonjour M.Presidente :" + this.getElpresidente().getFirstName() + ", l'année présidentielle  :" + this.yearsTotal);
+        System.out.println("Saison : " + this.season);
+        System.out.println("\n_________________FACTIONS :_____________________");
+        for (Faction faction : this.getFactions()){
+            System.out.println(" Faction : " + faction.getTitle() + ", satisfaction :" + faction.getSatisfaction() + "%, nbpartisans : " + faction.getNbrPartisans());
+        }
+        System.out.println("\n_________________RESSOURCES :_____________________");
+        System.out.println(" Ressource :  Agriculture,      cumul :" + agriculture.getCumulative() + "% ");
+        System.out.println(" Ressource :  Industry,         cumul :" + industry.getCumulative() + "% ");
+        System.out.println(" Ressource :  Treasury,         cumul :" + treasury.getFundsTotal() + "€ ");
+
+
+        System.out.println("\n\nSatisfaction Global : " + this.satisfactionGlobal + "%");
+
+
     }
 }

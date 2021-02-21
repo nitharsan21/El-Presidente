@@ -3,6 +3,7 @@ package Technic.Builder;
 import Luncher.MainApp;
 import Ressources.Choice;
 import Ressources.Event;
+import Ressources.Faction;
 import Ressources.GlobleVariables.FactionName;
 import com.google.gson.*;
 
@@ -30,7 +31,7 @@ public class EventBuilder {
                 Object obj = jsonParser.parse(reader);
 
                 JsonArray EventList = (JsonArray) obj;
-                System.out.println(EventList);
+//                System.out.println(EventList);
 
                 //Iterate over Event array
                 EventList.forEach(event -> parseEventObject((JsonObject) event));
@@ -80,7 +81,7 @@ public class EventBuilder {
      * changing the JsonObject to Class Choice for the event
      *
      * @param choiceObject variable with the data of choices for an event
-     * @return
+     * @return list of choices defined in the  jsonObjet
      */
     private static List<Choice> parseEventChoiseObject(JsonArray choiceObject) {
 
@@ -95,8 +96,8 @@ public class EventBuilder {
             newChoice.setChoice(choice);
 
             //Get result Factions
-            HashMap<FactionName, Double> result = parseEventChoiseResultFactions(choiceJson.get("resultFactions").getAsJsonArray());
-            newChoice.setResult(result);
+            List<Faction> listresult = parseEventChoiseResultFactions(choiceJson.get("resultFactions").getAsJsonArray());
+            newChoice.setResult(listresult);
 
             // Get result Ressources
             JsonArray resourceOject = choiceJson.get("resultResource").getAsJsonArray();
@@ -104,7 +105,7 @@ public class EventBuilder {
                 JsonObject resultJson = (JsonObject) resourceOject.get(j);
                 String[] keys = resultJson.keySet().toArray(new String[0]);
                 String nameResource = keys[0];
-                Double satifaction = resultJson.get(keys[0]).getAsDouble();
+                double satifaction = resultJson.get(keys[0]).getAsDouble();
                 newChoice.setResource(nameResource, satifaction);
             }
 
@@ -122,15 +123,16 @@ public class EventBuilder {
      * @param resultObject object with all list of satisfaction for the factions
      * @return listResult
      */
-    public static HashMap<FactionName, Double> parseEventChoiseResultFactions(JsonArray resultObject) {
-        HashMap<FactionName, Double> listResult = new HashMap<>();
+    public static List<Faction> parseEventChoiseResultFactions(JsonArray resultObject) {
+        List<Faction> listResult = new ArrayList<>();
         JsonArray resultList = resultObject.getAsJsonArray();
         for (int i = 0; i < resultList.size(); i++) {
             JsonObject resultJson = (JsonObject) resultList.get(i);
             String[] keys = resultJson.keySet().toArray(new String[0]);
             FactionName namefaction = FactionName.valueOf(keys[0]);
-            Double satifaction = resultJson.get(keys[0]).getAsDouble();
-            listResult.put(namefaction, satifaction);
+            double satifaction = resultJson.get(keys[0]).getAsDouble();
+            int partisans = resultJson.get("partisans").getAsInt();
+            listResult.add(new Faction(namefaction, satifaction, partisans));
         }
         return listResult;
     }

@@ -2,6 +2,7 @@ package Luncher;
 
 import Ressources.*;
 import Technic.Builder.BuildIsland;
+import Technic.GameLuncher.Lunch;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,8 @@ public class MainApp {
     public static void main(String[] args) {
         // TODO Auto-generated method stub
         BuildIsland.build();
-       // System.out.println(MainApp.island.toString());
-        System.out.println(MainApp.island.getDifficulty());
+        Lunch.gameLuncher();
+//        System.out.println(MainApp.island.toString());
+//        System.out.println(MainApp.island.getDifficulty());
     }
 }

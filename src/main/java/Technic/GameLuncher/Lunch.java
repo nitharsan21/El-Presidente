@@ -5,12 +5,14 @@ import Technic.Tools.DisplayInformation;
 
 public class Lunch {
     public static void gameLuncher(){
-
+        System.out.println("\n\nxxxxxxxxxxxxxxxxx				START GAME					xxxxxxxxxxxxxxxxxxxxxx");
         MainApp.island.increaseYear();
         DisplayInformation.displayInformationBeforeTheStart();
         do{
-            System.out.println();
+            MainApp.island.incrementNbTour();
+            System.out.println("\n\nxxxxxxxxxxxxxxxxx			Event :"+ MainApp.island.getNbtour()+"				xxxxxxxxxxxxxxxxxxxxxx");
 
-        }while(MainApp.island.getNbtour() % 4 == 0);
+            MainApp.island.nextSeason();
+         }while(MainApp.island.getNbtour() % 4 != 0);
     }
 }

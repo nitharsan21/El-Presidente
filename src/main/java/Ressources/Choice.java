@@ -2,22 +2,20 @@ package Ressources;
 
 import Ressources.GlobleVariables.FactionName;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Choice {
     private String choice;
-    private HashMap<FactionName, Double> result ;
+    private List<Faction> resultFaction ;
     private Agriculture agriculture;
     private Industry industry;
     private Treasury treasury;
 
-    public Choice(String choice, HashMap<FactionName, Double> result) {
-        this.choice = choice;
-        this.result = result;
-    }
 
     public Choice(){
-        this.result = new HashMap<>();
+        this.resultFaction = new ArrayList<>();
     }
 
     public String getChoice() {
@@ -28,12 +26,12 @@ public class Choice {
         this.choice = choice;
     }
 
-    public HashMap<FactionName, Double> getResult() {
-        return result;
+    public List<Faction> getResult() {
+        return resultFaction;
     }
 
-    public void setResult(HashMap<FactionName, Double> result) {
-        this.result = result;
+    public void setResult(List<Faction> result) {
+        this.resultFaction = result;
     }
 
     public Agriculture getAgriculture() {
@@ -62,16 +60,9 @@ public class Choice {
 
     public void setResource(String nameResource, Double satifaction){
         switch (nameResource) {
-            case "AGRICULTURE":
-                this.agriculture = new Agriculture(satifaction.doubleValue());
-                break;
-            case "INDUSTRY":
-                this.industry = new Industry(satifaction.doubleValue());
-                break;
-            case "TREASURY":
-                this.treasury = new Treasury(satifaction.doubleValue());
-                break;
-
+            case "AGRICULTURE" -> this.agriculture = new Agriculture(satifaction);
+            case "INDUSTRY" -> this.industry = new Industry(satifaction);
+            case "TREASURY" -> this.treasury = new Treasury(satifaction);
         }
     }
 
@@ -80,7 +71,7 @@ public class Choice {
     public String toString() {
         return "Choice{" +
                 "choice='" + choice + '\'' +
-                ", result=" + result +
+                ", result=" + resultFaction +
                 ", agriculture=" + agriculture +
                 ", industry=" + industry +
                 ", treasury=" + treasury +
