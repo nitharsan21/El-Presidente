@@ -1,0 +1,85 @@
+[
+  {
+    "event": {
+      "eventid" : 1,
+      "context": "L'Organisation des Caraïbes-Unies souhaite que vous acceillez des réfugiés climatiqies suite aux récentes inondations dans la région",
+      "season": "WINTER",
+      "choices": [
+        {
+          "choice": "Décliner poliment au motif que vous n'avez pa les intrastructures pour eux",
+          "resultFactions": [
+            {"CAPITALISTS": 0},
+            {"COMMUNISTS": 0},
+            {"LIBERALS": -15},
+            {"RELIGIOUS": -15},
+            {"MILITARISTS": 0},
+            {"ECOLOGISTS": 0},
+            {"NATIONALISTS": 0},
+            {"LOYALISTS": 0}
+          ] ,
+          "resultResource": [
+            {"AGRICULTURE": 0},
+            {"INDUSTRY": 0},
+            {"TREASURY": 0}
+          ]
+        },
+        {
+          "choice": "Décliner au motif qu'il ne sont pas du même culte que vous",
+          "resultFactions": [
+            {"CAPITALISTS": 0},
+            {"COMMUNISTS": 0},
+            {"LIBERALS": -30},
+            {"RELIGIOUS": 15},
+            {"MILITARISTS": 0},
+            {"ECOLOGISTS": 0},
+            {"NATIONALISTS": 0},
+            {"LOYALISTS": 0}
+          ],
+          "resultResource": [
+            {"AGRICULTURE": 0},
+            {"INDUSTRY": 0},
+            {"TREASURY": 0}
+          ]
+        },
+        {
+          "choice": "Accepter sans condition",
+          "resultFactions": [
+            {"CAPITALISTS": 0},
+            {"COMMUNISTS": 0},
+            {"LIBERALS": 10},
+            {"RELIGIOUS": 10},
+            {"MILITARISTS": 0},
+            {"ECOLOGISTS": 0},
+            {"NATIONALISTS": -20},
+            {"LOYALISTS": 0}
+          ],
+          "resultResource": [
+            {"AGRICULTURE": 0},
+            {"INDUSTRY": 0},
+            {"TREASURY": 0}
+          ]
+        },
+        {
+          "choice": "Accepter sous condition d'aide financière de la part de l'OCU",
+          "resultFactions": [
+            {"CAPITALISTS": 10},
+            {"COMMUNISTS": 0},
+            {"LIBERALS": 0},
+            {"RELIGIOUS": 0},
+            {"MILITARISTS": 0},
+            {"ECOLOGISTS": 0},
+            {"NATIONALISTS": -20},
+            {"LOYALISTS": 0}
+          ],
+          "resultResource": [
+            {"AGRICULTURE": 0},
+            {"INDUSTRY": 0},
+            {"TREASURY": 200}
+          ]
+        }
+      ],
+      "subEvent": 0
+
+    }
+  }
+]

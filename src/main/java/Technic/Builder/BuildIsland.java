@@ -1,5 +1,8 @@
 package Technic.Builder;
+import Luncher.MainApp;
 import Ressources.Island;
+
+import java.io.File;
 
 public class BuildIsland {
 
@@ -8,5 +11,10 @@ public class BuildIsland {
         new InitializeNewIsland().initialize();
         new InitializePresident().initialize();
         new InitializeDifficulty().initialize();
+
+        File pathevent = new File(MainApp.PATH_EVENT);
+        EventBuilder.buildEvent(pathevent);
+
+
     }
 }

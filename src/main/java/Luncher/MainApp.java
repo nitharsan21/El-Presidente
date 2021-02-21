@@ -7,6 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainApp {
+    /**
+     * path of event data
+     */
+    public static final String PATH_EVENT = "src/main/java/Data/events.json";
+
+    /**
+     * varables singleton
+     */
     public static Island island;
     public static List<Event> events = new ArrayList<>();
 
