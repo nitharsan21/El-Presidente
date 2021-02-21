@@ -176,11 +176,11 @@
   {
     "event": {
       "eventid" : 4,
-      "context": "L'Organisation des Caraïbes-Unies souhaite que vous acceillez des réfugiés climatiqies suite aux récentes inondations dans la région",
-      "season": "ALL",
+      "context": " L'ile subit une vague de chaleur, Vigilance de canicule annoncé ",
+      "season": "SUMMER",
       "choices": [
         {
-          "choice": "Décliner poliment au motif que vous n'avez pa les intrastructures pour eux",
+          "choice": " Prise en compte des mesures de précaution en s'invistant avec ses propres moyens ",
           "resultFactions": [
             {"CAPITALISTS": 0, "partisans": 0},
             {"COMMUNISTS": 0, "partisans": 0},
@@ -192,31 +192,13 @@
             {"LOYALISTS": 0, "partisans": 0}
           ] ,
           "resultResource": [
-            {"AGRICULTURE": 0},
+            {"AGRICULTURE": 10},
             {"INDUSTRY": 0},
             {"TREASURY": 0}
           ]
         },
         {
-          "choice": "Décliner au motif qu'il ne sont pas du même culte que vous",
-          "resultFactions": [
-            {"CAPITALISTS": 0, "partisans": 0},
-            {"COMMUNISTS": 0, "partisans": 0},
-            {"LIBERALS": -30, "partisans": 0},
-            {"RELIGIOUS": 15, "partisans": 0},
-            {"MILITARISTS": 0, "partisans": 0},
-            {"ECOLOGISTS": 0, "partisans": 0},
-            {"NATIONALISTS": 0, "partisans": 0},
-            {"LOYALISTS": 0, "partisans": 0}
-          ],
-          "resultResource": [
-            {"AGRICULTURE": 0},
-            {"INDUSTRY": 0},
-            {"TREASURY": 0}
-          ]
-        },
-        {
-          "choice": "Accepter sans condition",
+          "choice": " Demande d'assistance à la protection civile ",
           "resultFactions": [
             {"CAPITALISTS": 0, "partisans": 0},
             {"COMMUNISTS": 0, "partisans": 0},
@@ -232,14 +214,88 @@
             {"INDUSTRY": 0},
             {"TREASURY": 0}
           ]
+        }
+      ],
+      "subEvent": 0
+    }
+  },
+  {
+    "event": {
+      "eventid" : 5,
+      "context": " Un incendie s'est déclarer pret de la de l'ile et risque d'atteindre la localité du président  ",
+      "season": "ALL",
+      "choices": [
+        {
+          "choice": " Aider le président à se protéger ",
+          "resultFactions": [
+            {"CAPITALISTS": 0, "partisans": 0},
+            {"COMMUNISTS": 0, "partisans": 0},
+            {"LIBERALS": -15, "partisans": 0},
+            {"RELIGIOUS": -15, "partisans": 0},
+            {"MILITARISTS": 0, "partisans": 0},
+            {"ECOLOGISTS": 0, "partisans": 0},
+            {"NATIONALISTS": 0, "partisans": 0},
+            {"LOYALISTS": 0, "partisans": 0}
+          ] ,
+          "resultResource": [
+            {"AGRICULTURE": 0},
+            {"INDUSTRY": 0},
+            {"TREASURY": 100}
+          ]
         },
         {
-          "choice": "Accepter sous condition d'aide financière de la part de l'OCU",
+          "choice": " Se protéger seul sans aider personne ",
           "resultFactions": [
-            {"CAPITALISTS": 10, "partisans": 0},
+            {"CAPITALISTS": 0, "partisans": 0},
             {"COMMUNISTS": 0, "partisans": 0},
-            {"LIBERALS": 0, "partisans": 0},
-            {"RELIGIOUS": 0, "partisans": 0},
+            {"LIBERALS": -15, "partisans": 0},
+            {"RELIGIOUS": -15, "partisans": 0},
+            {"MILITARISTS": 0, "partisans": 0},
+            {"ECOLOGISTS": 0, "partisans": 0},
+            {"NATIONALISTS": 0, "partisans": 0},
+            {"LOYALISTS": 0, "partisans": 0}
+          ] ,
+          "resultResource": [
+            {"AGRICULTURE": 0},
+            {"INDUSTRY": 0},
+            {"TREASURY": -100}
+          ]
+        }
+      ],
+      "subEvent": 0
+    }
+  },
+  {
+    "event": {
+      "eventid" : 6,
+      "context": " Suite à une pandémie, beaucoup de changements de la vie quotidienne engendre une crise économique qui influance sur tous les domaines ",
+      "season": "ALL",
+      "choices": [
+        {
+          "choice": " Inverstir dans l'agriculture ",
+          "resultFactions": [
+            {"CAPITALISTS": 0, "partisans": 0},
+            {"COMMUNISTS": 0, "partisans": 0},
+            {"LIBERALS": -15, "partisans": 0},
+            {"RELIGIOUS": -15, "partisans": 0},
+            {"MILITARISTS": 0, "partisans": 0},
+            {"ECOLOGISTS": 0, "partisans": 0},
+            {"NATIONALISTS": 0, "partisans": 0},
+            {"LOYALISTS": 0, "partisans": 0}
+          ] ,
+          "resultResource": [
+            {"AGRICULTURE": 10},
+            {"INDUSTRY": 0},
+            {"TREASURY": 200}
+          ]
+        },
+        {
+          "choice": " Se laissser faire ",
+          "resultFactions": [
+            {"CAPITALISTS": 0, "partisans": 0},
+            {"COMMUNISTS": 0, "partisans": 0},
+            {"LIBERALS": 10, "partisans": 0},
+            {"RELIGIOUS": 10, "partisans": 0},
             {"MILITARISTS": 0, "partisans": 0},
             {"ECOLOGISTS": 0, "partisans": 0},
             {"NATIONALISTS": -20, "partisans": 0},
@@ -248,7 +304,53 @@
           "resultResource": [
             {"AGRICULTURE": 0},
             {"INDUSTRY": 0},
-            {"TREASURY": 200}
+            {"TREASURY": 0}
+          ]
+        }
+      ],
+      "subEvent": 0
+    }
+  },
+  {
+    "event": {
+      "eventid" : 7 ,
+      "context": " Une tempete trés puissantes cause des dégats humains et matériels  ",
+      "season": "ALL",
+      "choices": [
+        {
+          "choice": " Prendre les premiers secours pour assistance au personnes en danger ",
+          "resultFactions": [
+            {"CAPITALISTS": 0, "partisans": 0},
+            {"COMMUNISTS": 0, "partisans": 0},
+            {"LIBERALS": -15, "partisans": 0},
+            {"RELIGIOUS": -15, "partisans": 0},
+            {"MILITARISTS": 0, "partisans": 0},
+            {"ECOLOGISTS": 0, "partisans": 0},
+            {"NATIONALISTS": 0, "partisans": 0},
+            {"LOYALISTS": 0, "partisans": 0}
+          ] ,
+          "resultResource": [
+            {"AGRICULTURE": -100},
+            {"INDUSTRY": 0},
+            {"TREASURY": -100}
+          ]
+        },
+        {
+          "choice": " Rien faire ",
+          "resultFactions": [
+            {"CAPITALISTS": 0, "partisans": 0},
+            {"COMMUNISTS": 0, "partisans": 0},
+            {"LIBERALS": 10, "partisans": 0},
+            {"RELIGIOUS": 10, "partisans": 0},
+            {"MILITARISTS": 0, "partisans": 0},
+            {"ECOLOGISTS": 0, "partisans": 0},
+            {"NATIONALISTS": -20, "partisans": 0},
+            {"LOYALISTS": 0, "partisans": 0}
+          ],
+          "resultResource": [
+            {"AGRICULTURE": 0},
+            {"INDUSTRY": 0},
+            {"TREASURY": 0}
           ]
         }
       ],
