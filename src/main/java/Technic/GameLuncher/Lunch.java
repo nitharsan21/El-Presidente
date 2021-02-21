@@ -10,8 +10,10 @@ public class Lunch {
         DisplayInformation.displayInformationBeforeTheStart();
         do{
             MainApp.island.incrementNbTour();
-            System.out.println("\n\nxxxxxxxxxxxxxxxxx			Event :"+ MainApp.island.getNbtour()+"				xxxxxxxxxxxxxxxxxxxxxx");
+            System.out.println("\n\nxxxxxxxxxxxxxxxxx			Event : "+ MainApp.island.getNbtour()+" Saison : "+MainApp.island.getSeason() +"				xxxxxxxxxxxxxxxxxxxxxx");
+            EventLuncher.LunchRandomEvent();
 
+            //change season after the event
             MainApp.island.nextSeason();
          }while(MainApp.island.getNbtour() % 4 != 0);
     }
