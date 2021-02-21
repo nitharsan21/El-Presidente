@@ -15,7 +15,6 @@ public class Lunch {
     public static void gameLuncher(){
         MainApp.island.increaseYear();
         System.out.println("Bonjour M.Presidente :" + MainApp.island.getElpresidente().getFirstName() + ", l'année présidentielle  : " + MainApp.island.getYearsTotal());
-        System.out.println("Saison : " + MainApp.island.getSeason());
         DisplayInformation.displayInformationBeforeTheStart();
         do{
             MainApp.island.incrementNbTour();
@@ -36,26 +35,16 @@ public class Lunch {
         CalculRevenue.calculRevenueOfYear();
         DisplayInformation.displayInformationBeforeTheStart();
         String desisions = " Pot de vin, Le Marché alimentaire, afficher les informations, Bilan de fin d'annéé ";
-        System.out.println("\n\nxxxxxxxxxxxxxxxxxxxxxxxx        DÉCISION FIN DE L'ANNÉE         xxxxxxxxxxxxxxxxxxxxxxx");
+        System.out.println(DisplayStyle.ANSI_PURPLE + "\n\nxxxxxxxxxxxxxxxxxxxxxxxx        DÉCISION FIN DE L'ANNÉE         xxxxxxxxxxxxxxxxxxxxxxx" + DisplayStyle.ANSI_RESET);
         try {
             do {
                 int action = InputActionString.displayAndGetActionsWithString(desisions);
                 switch (action) {
-                    case 1:
-                        Bribe.giveBribe();
-                        break;
-                    case 2:
-                        FoodMarket.buyFood();
-                        break;
-                    case 3:
-                        DisplayInformation.displayInformationBeforeTheStart();
-                        break;
-                    case 4:
-                        Balance.calculBalance();
-                        break;
-                    default:
-                        System.out.println(DisplayStyle.ANSI_RED + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ACTION INCONNUE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + DisplayStyle.ANSI_RESET);
-                        break;
+                    case 1 -> Bribe.giveBribe();
+                    case 2 -> FoodMarket.buyFood();
+                    case 3 -> DisplayInformation.displayInformationBeforeTheStart();
+                    case 4 -> Balance.calculBalance();
+                    default -> System.out.println(DisplayStyle.ANSI_RED + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ACTION INCONNUE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + DisplayStyle.ANSI_RESET);
                 }
                 if (action == 4){
                     break;

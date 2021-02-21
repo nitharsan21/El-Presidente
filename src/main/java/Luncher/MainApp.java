@@ -3,6 +3,7 @@ package Luncher;
 import Ressources.*;
 import Technic.Builder.BuildIsland;
 import Technic.GameLuncher.Lunch;
+import Technic.Tools.DisplayStyle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,7 @@ public class MainApp {
         // TODO Auto-generated method stub
         BuildIsland.build();
 
-        System.out.println("\n\nxxxxxxxxxxxxxxxxx				START GAME					xxxxxxxxxxxxxxxxxxxxxx");
+        System.out.println( DisplayStyle.ANSI_PURPLE + "\n\nxxxxxxxxxxxxxxxxx				START GAME					xxxxxxxxxxxxxxxxxxxxxx" + DisplayStyle.ANSI_RESET);
         Lunch.gameLuncher();
 //        System.out.println(MainApp.island.toString());
 //        System.out.println(MainApp.island.getDifficulty());

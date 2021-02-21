@@ -23,7 +23,7 @@ public class FoodMarket {
             if(moneyNeeded <= MainApp.island.getTreasury().getFundsTotal()) {
                 MainApp.island.getTreasury().minusMoneyToTressury(moneyNeeded);
                 MainApp.island.addfood(nbfood);
-                System.out.println(DisplayStyle.ANSI_GREEN+"Le Marché alimentaire : OK"+DisplayStyle.ANSI_RESET);
+                System.out.println(DisplayStyle.ANSI_GREEN+" Le Marché alimentaire : OK"+DisplayStyle.ANSI_RESET);
             }else {
             System.out.println(DisplayStyle.ANSI_RED + "        -*-     PAS ASSEZ D'ARGENT DANS LE TRÉSOR   -*-     " + DisplayStyle.ANSI_RESET);
             }

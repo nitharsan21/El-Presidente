@@ -25,7 +25,8 @@ public class Bribe {
                 MainApp.island.getTreasury().minusMoneyToTressury(moneyneeded);
                 MainApp.island.getFactionFromListWithName(FactionName.LOYALISTS).minusSatisfaction(minusSatifaction);
                 fact.addSatisfaction(10);
-                System.out.println(DisplayStyle.ANSI_GREEN + "Pot de vin : OK" + DisplayStyle.ANSI_RESET);
+                MainApp.island.calculSatisfactionGlobal();
+                System.out.println(DisplayStyle.ANSI_GREEN + " Pot de vin : OK" + DisplayStyle.ANSI_RESET);
             }else {
                 System.out.println(DisplayStyle.ANSI_RED + "        -*-     PAS ASSEZ D'ARGENT DANS LE TRÉSOR   -*-     " + DisplayStyle.ANSI_RESET);
             }

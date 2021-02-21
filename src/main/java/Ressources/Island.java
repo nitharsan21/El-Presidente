@@ -4,6 +4,7 @@ import Luncher.MainApp;
 import Ressources.GlobleVariables.Difficulty;
 import Ressources.GlobleVariables.FactionName;
 import Ressources.GlobleVariables.Season;
+import Technic.Tools.DisplayStyle;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -219,7 +220,7 @@ public class Island {
      * all information about the isaland
      */
     public void printSatisfaction(){
-        System.out.println("\n_________________FACTIONS :_____________________");
+        System.out.println(DisplayStyle.ANSI_BLUE + "\n_________________FACTIONS :_____________________");
         for (Faction faction : this.getFactions()){
             System.out.println(" Faction : " + faction.getTitle() + ", satisfaction :" + faction.getSatisfaction() + "%, nbpartisans : " + faction.getNbrPartisans());
         }
@@ -229,7 +230,7 @@ public class Island {
         System.out.println(" Ressource :  Treasury,         cumul :" + treasury.getFundsTotal() + "€ ");
 
         System.out.println("\n Nourriture : " + this.food);
-        System.out.println("\n Satisfaction Global : " + this.satisfactionGlobal + "%");
+        System.out.println("\n Satisfaction Global : " + this.satisfactionGlobal + "%" + DisplayStyle.ANSI_RESET);
 
 
     }

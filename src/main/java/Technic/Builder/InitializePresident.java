@@ -14,16 +14,16 @@ public class InitializePresident {
         try{
             System.out.println("\nxxxxxxxxxxxxxxxxx				El Presidente					xxxxxxxxxxxxxxxxxxxxxx\n");
 
-            String firstname = InputValue.getStringFor("\n Nom : ");
+            String firstname = InputValue.getStringFor("Nom : ");
             elPresidente.setFirstName(firstname);
 
-            String lastName = InputValue.getStringFor("\n Prenom : ");
+            String lastName = InputValue.getStringFor("Prenom : ");
             elPresidente.setLastName(lastName);
 
-            int age = InputValue.getIntegerFor("\n Age : ");
+            int age = InputValue.getIntegerFor("Age : ");
             elPresidente.setAge(age);
 
-            String sex = InputValue.getSexFor("\n Sexe (M/F): ");
+            String sex = InputValue.getSexFor("Sexe (M/F): ");
             elPresidente.setSex(sex);
 
             MainApp.island.setElpresidente(elPresidente);
