@@ -5,6 +5,7 @@ import Ressources.Choice;
 import Ressources.Event;
 import Ressources.Faction;
 import Ressources.GlobleVariables.FactionName;
+import Technic.Tools.DifficultyValues;
 import com.google.gson.*;
 
 import java.io.File;
@@ -105,7 +106,7 @@ public class EventBuilder {
                 JsonObject resultJson = (JsonObject) resourceOject.get(j);
                 String[] keys = resultJson.keySet().toArray(new String[0]);
                 String nameResource = keys[0];
-                double satifaction = resultJson.get(keys[0]).getAsDouble();
+                double satifaction =  DifficultyValues.getValueWithDiffculty(resultJson.get(keys[0]).getAsDouble());
                 newChoice.setResource(nameResource, satifaction);
             }
 
@@ -130,7 +131,7 @@ public class EventBuilder {
             JsonObject resultJson = (JsonObject) resultList.get(i);
             String[] keys = resultJson.keySet().toArray(new String[0]);
             FactionName namefaction = FactionName.valueOf(keys[0]);
-            double satifaction = resultJson.get(keys[0]).getAsDouble();
+            double satifaction = DifficultyValues.getValueWithDiffculty(resultJson.get(keys[0]).getAsDouble());
             int partisans = resultJson.get("partisans").getAsInt();
             listResult.add(new Faction(namefaction, satifaction, partisans));
         }

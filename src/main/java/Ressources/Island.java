@@ -142,6 +142,7 @@ public class Island {
             totalsupporters += faction.getNbrPartisans();
             calculsatisfaction += faction.getSatisfaction() * faction.getNbrPartisans();
         }
+        this.setSatisfactionGlobal(calculsatisfaction/totalsupporters);
         return calculsatisfaction/totalsupporters;
     }
 
@@ -195,8 +196,6 @@ public class Island {
      * all information about the isaland
      */
     public void printSatisfaction(){
-        System.out.println("Bonjour M.Presidente :" + this.getElpresidente().getFirstName() + ", l'année présidentielle  :" + this.yearsTotal);
-        System.out.println("Saison : " + this.season);
         System.out.println("\n_________________FACTIONS :_____________________");
         for (Faction faction : this.getFactions()){
             System.out.println(" Faction : " + faction.getTitle() + ", satisfaction :" + faction.getSatisfaction() + "%, nbpartisans : " + faction.getNbrPartisans());

@@ -30,7 +30,15 @@ public class Faction {
     }
 
     public void setSatisfaction(double satisfaction) {
-        this.satisfaction = satisfaction;
+        if(satisfaction >= 0) {
+            if (satisfaction > 100) {
+                this.satisfaction = 100;
+            } else {
+                this.satisfaction = satisfaction;
+            }
+        }else{
+            this.satisfaction = 0;
+        }
     }
 
     public int getNbrPartisans() {

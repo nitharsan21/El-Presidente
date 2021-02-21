@@ -27,6 +27,8 @@ public class MainApp {
     public static void main(String[] args) {
         // TODO Auto-generated method stub
         BuildIsland.build();
+
+        System.out.println("\n\nxxxxxxxxxxxxxxxxx				START GAME					xxxxxxxxxxxxxxxxxxxxxx");
         Lunch.gameLuncher();
 //        System.out.println(MainApp.island.toString());
 //        System.out.println(MainApp.island.getDifficulty());

@@ -26,7 +26,7 @@ public class Choice {
         this.choice = choice;
     }
 
-    public List<Faction> getResult() {
+    public List<Faction> getResultFaction() {
         return resultFaction;
     }
 
