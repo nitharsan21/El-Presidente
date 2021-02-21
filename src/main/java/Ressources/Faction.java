@@ -46,7 +46,19 @@ public class Faction {
     }
 
     public void setNbrPartisans(int nbrPartisans) {
-        this.nbrPartisans = nbrPartisans;
+        if(nbrPartisans >=0) {
+            this.nbrPartisans = nbrPartisans;
+        }else {
+            this.nbrPartisans = 0;
+        }
+    }
+
+    public void minusPartisans(int nbrPartisans){
+        setNbrPartisans(this.getNbrPartisans() - nbrPartisans);
+    }
+
+    public void addPartisans(int nbrPartisans){
+        setNbrPartisans(this.getNbrPartisans() + nbrPartisans);
     }
 
 

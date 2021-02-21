@@ -107,7 +107,7 @@ public class EventBuilder {
                 JsonObject resultJson = (JsonObject) resourceOject.get(j);
                 String[] keys = resultJson.keySet().toArray(new String[0]);
                 String nameResource = keys[0];
-                double satifaction =  DifficultyValues.getValueWithDiffculty(resultJson.get(keys[0]).getAsDouble());
+                double satifaction =  DifficultyValues.getValueWithDifficulty(resultJson.get(keys[0]).getAsDouble());
                 newChoice.setResource(nameResource, satifaction);
             }
 
@@ -132,7 +132,7 @@ public class EventBuilder {
             JsonObject resultJson = (JsonObject) resultList.get(i);
             String[] keys = resultJson.keySet().toArray(new String[0]);
             FactionName namefaction = FactionName.valueOf(keys[0]);
-            double satifaction = DifficultyValues.getValueWithDiffculty(resultJson.get(keys[0]).getAsDouble());
+            double satifaction = DifficultyValues.getValueWithDifficulty(resultJson.get(keys[0]).getAsDouble());
             int partisans = resultJson.get("partisans").getAsInt();
             listResult.add(new Faction(namefaction, satifaction, partisans));
         }

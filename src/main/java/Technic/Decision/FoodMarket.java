@@ -16,14 +16,14 @@ public class FoodMarket {
      * buying food from the market
      */
     public static void buyFood(){
-        System.out.println(" xxxxxxxxxxxxxxxxxxxx       Le Marché alimentaire       xxxxxxxxxxxxxxxxxxxxx");
+        System.out.println("\n xxxxxxxxxxxxxxxxxxxx       Le Marché alimentaire       xxxxxxxxxxxxxxxxxxxxx");
         int nbfood = InputValue.getIntegerFor("nombre d'unités alimentaires nécessaires : ");
         double moneyNeeded = nbfood * 8;
         if(confirmationOfFood(moneyNeeded, nbfood)){
             if(moneyNeeded <= MainApp.island.getTreasury().getFundsTotal()) {
                 MainApp.island.getTreasury().minusMoneyToTressury(moneyNeeded);
                 MainApp.island.addfood(nbfood);
-                System.out.println("Le Marché alimentaire : OK");
+                System.out.println(DisplayStyle.ANSI_GREEN+"Le Marché alimentaire : OK"+DisplayStyle.ANSI_RESET);
             }else {
             System.out.println(DisplayStyle.ANSI_RED + "        -*-     PAS ASSEZ D'ARGENT DANS LE TRÉSOR   -*-     " + DisplayStyle.ANSI_RESET);
             }

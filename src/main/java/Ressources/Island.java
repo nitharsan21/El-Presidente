@@ -90,6 +90,7 @@ public class Island {
     }
 
     public int getCitizenTotal() {
+        this.citizenTotal = getcitizenTotalFromFaction();
         return citizenTotal;
     }
 
@@ -98,6 +99,7 @@ public class Island {
     }
 
     public double getSatisfactionGlobal() {
+        this.satisfactionGlobal = calculSatisfactionGlobal();
         return satisfactionGlobal;
     }
 
@@ -161,8 +163,10 @@ public class Island {
             totalsupporters += faction.getNbrPartisans();
             calculsatisfaction += faction.getSatisfaction() * faction.getNbrPartisans();
         }
-        this.setSatisfactionGlobal(calculsatisfaction/totalsupporters);
-        return calculsatisfaction/totalsupporters;
+        double totalsatifaction = (calculsatisfaction/totalsupporters);
+        totalsatifaction = Math.round(totalsatifaction*100.0)/100.0;
+        this.setSatisfactionGlobal(totalsatifaction);
+        return totalsatifaction;
     }
 
     public int getcitizenTotalFromFaction(){
@@ -224,8 +228,8 @@ public class Island {
         System.out.println(" Ressource :  Industry,         cumul :" + industry.getCumulative() + "% ");
         System.out.println(" Ressource :  Treasury,         cumul :" + treasury.getFundsTotal() + "€ ");
 
-        System.out.println("\nNourriture : " + this.food + "%");
-        System.out.println("\n\nSatisfaction Global : " + this.satisfactionGlobal + "%");
+        System.out.println("\n Nourriture : " + this.food);
+        System.out.println("\n Satisfaction Global : " + this.satisfactionGlobal + "%");
 
 
     }

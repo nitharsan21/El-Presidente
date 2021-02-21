@@ -2,11 +2,10 @@ package Technic.GameLuncher;
 
 import Luncher.MainApp;
 import Ressources.Faction;
+import Technic.Decision.Balance;
 import Technic.Decision.Bribe;
-import Technic.Tools.CalculRevenue;
-import Technic.Tools.DisplayInformation;
-import Technic.Tools.DisplayStyle;
-import Technic.Tools.InputActionString;
+import Technic.Decision.FoodMarket;
+import Technic.Tools.*;
 
 public class Lunch {
 
@@ -14,13 +13,13 @@ public class Lunch {
      * lunch the first 4 event until the satifaction in down
      */
     public static void gameLuncher(){
-        System.out.println("Bonjour M.Presidente :" + MainApp.island.getElpresidente().getFirstName() + ", l'année présidentielle  :" + MainApp.island.getYearsTotal());
-        System.out.println("Saison : " + MainApp.island.getSeason());
         MainApp.island.increaseYear();
+        System.out.println("Bonjour M.Presidente :" + MainApp.island.getElpresidente().getFirstName() + ", l'année présidentielle  : " + MainApp.island.getYearsTotal());
+        System.out.println("Saison : " + MainApp.island.getSeason());
         DisplayInformation.displayInformationBeforeTheStart();
         do{
             MainApp.island.incrementNbTour();
-            System.out.println("\n\nxxxxxxxxxxxxxxxxx			Event : "+ MainApp.island.getNbtour()+" Saison : "+MainApp.island.getSeason() +"				xxxxxxxxxxxxxxxxxxxxxx");
+            System.out.println("\n\nxxxxxxxxxxxxxxxxx			Event : "+ MainApp.island.getNbtour()+", Saison : "+MainApp.island.getSeason() +"				xxxxxxxxxxxxxxxxxxxxxx");
             EventLuncher.lunchRandomEvent();
             //change season after the event
             MainApp.island.nextSeason();
@@ -36,8 +35,8 @@ public class Lunch {
     public static void endOfTheYearFace(){
         CalculRevenue.calculRevenueOfYear();
         DisplayInformation.displayInformationBeforeTheStart();
-        String desisions = " Pot de vin, Le Marché alimentaire, afficher les informations ";
-        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxx        DÉCISION FIN DE L'ANNÉE         xxxxxxxxxxxxxxxxxxxxxxx");
+        String desisions = " Pot de vin, Le Marché alimentaire, afficher les informations, Bilan de fin d'annéé ";
+        System.out.println("\n\nxxxxxxxxxxxxxxxxxxxxxxxx        DÉCISION FIN DE L'ANNÉE         xxxxxxxxxxxxxxxxxxxxxxx");
         try {
             do {
                 int action = InputActionString.displayAndGetActionsWithString(desisions);
@@ -46,15 +45,31 @@ public class Lunch {
                         Bribe.giveBribe();
                         break;
                     case 2:
+                        FoodMarket.buyFood();
                         break;
                     case 3:
                         DisplayInformation.displayInformationBeforeTheStart();
+                        break;
+                    case 4:
+                        Balance.calculBalance();
                         break;
                     default:
                         System.out.println(DisplayStyle.ANSI_RED + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ACTION INCONNUE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + DisplayStyle.ANSI_RESET);
                         break;
                 }
+                if (action == 4){
+                    break;
+                }
             } while (true);
+
+            if(MainApp.island.getSatisfactionGlobal() < DifficultyValues.getGlobalSatisfactionForDifficulty()){
+                System.out.println(DisplayStyle.ANSI_RED + "\n\n\n                     -*-   GAME OVER    -*-" + DisplayStyle.ANSI_RESET);
+                System.out.println(DisplayStyle.ANSI_BLUE + "\n Un coup d'État est tombé parce que votre satisfaction globale est tombée en dessous de la satisfaction minimale."+ DisplayStyle.ANSI_RESET);
+                System.out.println(DisplayStyle.ANSI_BLUE + "\n Votre score est "+ (MainApp.island.getNbtour() * MainApp.island.getYearsTotal()) +" "+ DisplayStyle.ANSI_RESET);
+            }else {
+                gameLuncher();
+            }
+
         }catch (Exception ex){
             System.out.println(ex.getMessage());
         }
