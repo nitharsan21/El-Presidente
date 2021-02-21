@@ -50,6 +50,15 @@ public class Faction {
     }
 
 
+    public void minusSatisfaction(double satisfaction){
+        setSatisfaction(this.getSatisfaction() - satisfaction);
+    }
+
+    public void addSatisfaction(double satisfaction){
+        setSatisfaction(this.getSatisfaction() + satisfaction);
+    }
+
+
     @Override
     public String toString() {
         return "Faction{" +

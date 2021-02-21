@@ -12,7 +12,11 @@ public class Agriculture {
     }
 
     public void setCumulative(double cumulative) {
-        this.cumulative = cumulative;
+        if(cumulative<0){
+            this.cumulative = 0;
+        }else {
+            this.cumulative = cumulative;
+        }
     }
 
     @Override

@@ -2,6 +2,7 @@ package Ressources;
 
 import Luncher.MainApp;
 import Ressources.GlobleVariables.Difficulty;
+import Ressources.GlobleVariables.FactionName;
 import Ressources.GlobleVariables.Season;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class Island {
     private int nbtour;
     private int citizenTotal;
     private double satisfactionGlobal;
+    private int food;
     private int yearsTotal;
 
 
@@ -42,6 +44,7 @@ public class Island {
         this.Factions = new ArrayList<>();
         this.nbtour = 0;
         this.yearsTotal = 0;
+        this.food = 0;
 
     }
 
@@ -116,6 +119,22 @@ public class Island {
 
     public void setSeason(Season season) {
         this.season = season;
+    }
+
+    public int getFood() {
+        return food;
+    }
+
+    public void setFood(int food) {
+        if(food >= 0) {
+           this.food = food;
+        }else{
+            this.food = 0;
+        }
+    }
+
+    public void addfood(int food){
+        this.food += food;
     }
 
     public void nextSeason(){
@@ -205,9 +224,23 @@ public class Island {
         System.out.println(" Ressource :  Industry,         cumul :" + industry.getCumulative() + "% ");
         System.out.println(" Ressource :  Treasury,         cumul :" + treasury.getFundsTotal() + "€ ");
 
-
+        System.out.println("\nNourriture : " + this.food + "%");
         System.out.println("\n\nSatisfaction Global : " + this.satisfactionGlobal + "%");
 
 
+    }
+
+    /**
+     * get faction with the help of a FactionName
+     * @param faction FactionName
+     * @return class Faction
+     */
+    public Faction getFactionFromListWithName(FactionName faction){
+        for(Faction f : getFactions()){
+            if(f.getTitle().equals(faction)){
+                return f;
+            }
+        }
+        return null;
     }
 }

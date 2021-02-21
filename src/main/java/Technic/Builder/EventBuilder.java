@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class EventBuilder {
+
     /**
      * build the events with the help of a json file
      *

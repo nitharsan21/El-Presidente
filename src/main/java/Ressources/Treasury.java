@@ -15,6 +15,15 @@ public class Treasury {
         this.fundsTotal = fundsTotal;
     }
 
+
+    public void addMoneyToTressury(double fund){
+        this.fundsTotal += fund;
+    }
+
+    public void minusMoneyToTressury(double fund){
+        this.fundsTotal -= fund;
+    }
+
     @Override
     public String toString() {
         return "Treasury{" +
